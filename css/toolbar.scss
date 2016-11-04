@@ -1,0 +1,55 @@
+$toolbar-size:52px;
+.toolbar-item,.toolbar-layer{
+  background:url(../img/toolbar.png) no-repeat;
+  margin-top:1px;
+}
+.toolbar {
+  position:fixed;
+  left:50%;
+  bottom:5px;
+  margin-left:-$toolbar-size / 2;
+}
+.toolbar-item {
+  display:block;
+  position:relative;
+  width:$toolbar-size;
+  height:$toolbar-size;
+  &:hover{
+    .toolbar-layer{
+      @include opacity(100);
+      @include transform(scale(1));
+    }
+  }
+  @include transition(background-position 0.5s);
+}
+.toolbar-item-weixin {
+  @include toolbar-item(-798px,-860px);
+  .toolbar-layer{
+    height:212px;
+    background-position: 0 0;
+  }
+}
+.toolbar-item-feedback {
+  @include toolbar-item(-426px,-488px);
+}
+.toolbar-item-app {
+  @include toolbar-item(-550px,-612px);
+  .toolbar-layer{
+    height:194px;
+    background-position: 0 -222px;
+  }
+}
+.toolbar-item-top {
+  @include toolbar-item(-674px,-736px);
+}
+.toolbar-layer{
+  position:absolute;
+  display:block;
+  right:$toolbar-size - 5;
+  bottom:0;
+  width:172px;
+  @include opacity(0);
+  @include transform(scale(0.01));
+  @include transition(all 1s);
+  @include transform-origin(95% 95%);
+}
